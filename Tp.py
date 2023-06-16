@@ -30,8 +30,7 @@ def Main():
     print ("a")
     while finalDePrograma==False:
         MostrarElementos(menuOpciones)
-        def Opcion():
-            input()
+        opcionSeleccionada = input("Por Favor Seleccione una Opcion")
         
 def MostrarElementos(lista):
     for i in range(len(lista)):
