@@ -31,12 +31,13 @@ def Main():
     while finalDePrograma==False:
         MostrarElementos(menuOpciones)
         opcionSeleccionada = input("Por Favor Seleccione una Opcion ")
-        menuFunciones[int(opcionSeleccionada)]
+        menuFunciones[int(opcionSeleccionada - 1)]
+        
         
 def MostrarElementos(lista):
     for i in range(len(lista)):
         print(str(i + 1) + ")", lista[i])
-        
+    print("0) Repetir Opcion",)
 
 menuFunciones = [
     AltaEstudiante(), BajaEstudiante(), ModificacionEstudiante(), ListadoEstudiantes(), CargaNotaEstudiante(),
