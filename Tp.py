@@ -13,31 +13,35 @@ menuOpciones = [
     "Listado de Mejores Estudiantes", #Nro. Legajo, Nombre y Nota
     "Salir del Programa"
 ] 
-def Main():
-
+finalDePrograma=False
 def AltaEstudiante():
-    
-    
+    print ("a")
+
 def BajaEstudiante():
-    
+    print ("a")
     
 def ModificacionEstudiante():
-    
+    print ("a")
     
 def ListadoEstudiantes():
-    
+    print ("a")
     
 def CargaNotaEstudiante():
-    
+    print ("a")
     
 def ListaEstudiantesReprobados():
-    
+    print ("a")
     
 def ListaEstudiantesAprobados():
-    
+    print ("a")
      
 def ListadoMejoresEstudiantes():
-    
+    print ("a")
     
 def SalirPrograma():
-    
+    print ("a")
+
+def Main():
+    print ("a")
+    while finalDePrograma==False:
+        
