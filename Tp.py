@@ -1,4 +1,3 @@
-finalDePrograma=False
 def AltaEstudiante():
     print ("a")
 
@@ -23,25 +22,27 @@ def ListaEstudiantesAprobados():
 def ListadoMejoresEstudiantes():
     print ("a")
     
-def SalirPrograma():
-    print ("a")
 
 def Main():
-    print ("a")
+    finalDePrograma=False
     while finalDePrograma==False:
         MostrarElementos(menuOpciones)
-        opcionSeleccionada = input("Por Favor Seleccione una Opcion ")
-        menuFunciones[int(opcionSeleccionada - 1)]
+        opcionSeleccionada = int(input("Por Favor Seleccione una Opcion =>"))
+        if (opcionSeleccionada != 0):
+            if opcionSeleccionada == len(menuOpciones):
+                finalDePrograma=True
+            else:
+                menuFunciones[int(opcionSeleccionada - 1)]()
         
         
 def MostrarElementos(lista):
     for i in range(len(lista)):
         print(str(i + 1) + ")", lista[i])
-    print("0) Repetir Opcion",)
+    print("0) Repetir Opciones",)
 
 menuFunciones = [
-    AltaEstudiante(), BajaEstudiante(), ModificacionEstudiante(), ListadoEstudiantes(), CargaNotaEstudiante(),
-    ListaEstudiantesReprobados(), ListaEstudiantesAprobados(), ListadoEstudiantes(), SalirPrograma()   
+    AltaEstudiante, BajaEstudiante, ModificacionEstudiante, ListadoEstudiantes, CargaNotaEstudiante,
+    ListaEstudiantesReprobados, ListaEstudiantesAprobados, ListadoEstudiantes  
 ]
 menuOpciones = [
     "Alta Estudiante", 
