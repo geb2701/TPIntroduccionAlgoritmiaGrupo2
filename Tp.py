@@ -2,6 +2,32 @@ legajosLista=[3,2,1]
 nombresLista=["Juan","Pedro","Maxi"]
 notas=[0,0,0]
 
+def EncontrarLegajo(legajo, legajoCreado): #legajoCreado es un boleado que determina si existe o no el legajo
+                                            #True el legajo ya esta creado
+                                            #False el legajo ya no esta creado
+    i=0
+    legajoBusqueda = False
+    while legajoBusqueda == False:
+        encontrado=False
+        while i < len(legajosLista) and encontrado==False:
+            if legajo==legajosLista [i]:
+                encontrado=True
+            else:
+                i += 1
+        if encontrado == legajoCreado:
+            if legajoCreado == True:
+                print ("Este Legajo Ya Existente")
+            else: 
+                print ("Este Legajo No Existe")
+            print("Ingrese 0 para regresar =>")
+            legajo=int(input("Ingrese el Legajo del Alumno => "))
+            if legajo == 0:
+               return
+            i=0
+        else:
+            legajoBusqueda = True
+    return [legajo, i]
+
 def OrdenarListas():
     n=len(legajosLista)
     desordenado=True
@@ -44,26 +70,14 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
     print ("Alta Estudiante")
     print("Ingrese 0 para regresar")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
-    i=0
+    
 
     if legajo==0:
         return
-    legajoNuevo = False
-    while legajoNuevo == False:
-        encontrado=False
-        while i < len(legajosLista) and encontrado==False:
-            if legajo==legajosLista [i]:
-                encontrado=True
-            else:
-                i += 1
-        if encontrado == True:
-            print ("Legajo Existente")
-            print("Ingrese 0 para regresar")
-            legajo=int(input("Ingrese el Legajo del Alumno => "))
-            if legajo == 0:
-               return
-        else:
-            legajoNuevo = True
+    
+    encontrarLegajo = EncontrarLegajo(legajo, True)
+
+    legajo = encontrarLegajo[0]
 
     nombre=input("Ingrese el Nombre del Alumno => ")
     if nombre == "":
@@ -97,22 +111,10 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
 
     if legajo==0:
         return
-    legajoEliminado = False
-    while legajoEliminado == False:
-        encontrado=False
-        while i < len(legajosLista) and encontrado==False:
-            if legajo==legajosLista [i]:
-                encontrado=True
-            else:
-                i += 1
-        if encontrado == False:
-            print ("Legajo No Encontrado")
-            print("Ingrese 0 para regresar =>")
-            legajo=int(input("Ingrese el Legajo del Alumno => "))
-            if legajo == 0:
-               return
-        else:
-            legajoEliminado = True
+    
+    encontrarLegajo = EncontrarLegajo(legajo, False)
+    legajo = encontrarLegajo[0]
+    i = encontrarLegajo[1]
 
     print("Datos Baja Alumno")
     print("Legajo:", str(legajosLista[i]))
@@ -165,17 +167,17 @@ def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
 def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las notas nro. enteros)
                             #En caso que el legajo no haya sido cargado, se debe mostrar la leyenda “Legajo inexistente”. La carga finaliza con legajo igual a -1. 
     print ("Alta Notas")
-    print("Ingrese 0 para regresar")
+    print("Ingrese 0 o -1 para regresar")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
     i=0
 
-    if legajo==0:
+    if legajo == 0 or legajo == -1:
         return
-    legajoNuevo = False
-    while legajoNuevo == False:
+    legajoListo = False
+    while legajoListo == False:
         encontrado=False
         while i < len(legajosLista) and encontrado==False:
-            if legajo==legajosLista [i]:
+            if legajo == legajosLista[i]:
                 encontrado=True
             else:
                 i += 1
@@ -183,10 +185,10 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las n
             print ("Legajo Existente")
             print("Ingrese 0 para regresar")
             legajo=int(input("Ingrese el Legajo del Alumno => "))
-            if legajo == 0:
-               return
+            if legajo == 0 or legajo == -1:
+                return
         else:
-            legajoNuevo = True
+            legajoListo = True
     
 def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota) 
     print ("a")
