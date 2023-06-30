@@ -139,7 +139,7 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     else:
         print("Operacion Cancelada")
 
-    nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al Menu =>"))
+    nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al Menu => "))
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
 
@@ -179,6 +179,11 @@ def ModificacionEstudiante(legajosLista, nombresLista):
         ModificacionEstudiante()
     
 def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
+    print("Lista Estudiantes")
+    if len(legajosLista) == 0:
+        input ("No hay Estudiantes Cargados")
+        return
+    
     OrdenarListas()
 
     for i in range (len(legajosLista)):
@@ -218,11 +223,11 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
     if (listaNotas[indice]!= 0):
         print("Este Alumno ya tiene una Nota Cargada")
     else:
-        nota = int(input("Ingrese la Nota del Alumno"))
+        nota = int(input("Ingrese la Nota del Alumno =>"))
         while 1 > nota or nota > 10: #validamos que la nota este entre 1 y 10
             print("La Nota debe estar entre 1 y 10")
             print("Ingrese 0 o -1 para regresar")
-            nota = int(input("Ingrese la Nota del Alumno"))
+            nota = int(input("Ingrese la Nota del Alumno =>"))
 
         
         confirmacion = Confirmar()
@@ -235,8 +240,9 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
     CargaNotaEstudiante() 
          
 def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota) 
+    print("Lista Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados")
         return
     OrdenarListas()
 
@@ -244,10 +250,12 @@ def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota)
         if listaNotas[i] < 4 and listaNotas[i] != 0:
             print (str(legajosLista[i]) + ")", nombresLista[i])
             print("Nota:", listaNotas[i])
+    input("Pulse para Continuar => ")
     
 def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
+    print("Lista Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados")
         return
     OrdenarListas()
 
@@ -255,10 +263,12 @@ def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
         if listaNotas[i] >= 4:
             print (str(legajosLista[i]) + ")", nombresLista[i])
             print("Nota:", listaNotas[i])
+    input("Pulse para Continuar => ")
      
 def ListadoMejoresEstudiantes(): #estudiantes (nro. de Legajo ,  nombre y nota) de aquellos  que tengan nota más alta 
+    print("Lista Mejores Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados")
         return
     OrdenarListas()
 
@@ -280,6 +290,7 @@ def ListadoMejoresEstudiantes(): #estudiantes (nro. de Legajo ,  nombre y nota) 
             if listaNotas[i] >= 4:
                 print (str(legajosLista[indice]) + ")", nombresLista[indice])
                 print("Nota:", listaNotas[indice])
+    input("Pulse para Continuar => ")
 
 def Main():
     finalDePrograma=False
