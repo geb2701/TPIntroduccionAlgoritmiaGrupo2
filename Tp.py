@@ -152,7 +152,7 @@ def ModificacionEstudiante(legajosLista, nombresLista):
     indice = encontrarLegajo[1]
     
     print(str(legajosLista[indice] + ")", nombresLista[indice]))
-    nombre = ObtenerNombre
+    nombre = ObtenerNombre()
     if nombre == "":
         return
         
