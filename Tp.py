@@ -108,7 +108,7 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
 def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudiantes
     print ("Baja Estudiante")
     if len(legajosLista) == 0:
-        input ("No Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
 
     print("Ingrese 0 para regresar =>")
@@ -139,7 +139,7 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
 
 def ModificacionEstudiante():
     if len(legajosLista) == 0:
-        input ("No Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
 
     print("Modificacion Estudiante")
@@ -175,7 +175,7 @@ def ModificacionEstudiante():
 def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
     print("Lista Estudiantes")
     if len(legajosLista) == 0:
-        input ("No hay Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
     
     OrdenarListas()
@@ -190,6 +190,10 @@ def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
 def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las listaNotas nro. enteros)
                             #En caso que el legajo no haya sido cargado, se debe mostrar la leyenda “Legajo inexistente”. La carga finaliza con legajo igual a -1. 
     print ("Alta Notas")
+    if len(legajosLista) == 0:
+        input ("No hay Estudiantes Cargados => ")
+        return
+
     print("Ingrese 0 o -1 para regresar")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
     if legajo == 0 or legajo == -1:
@@ -239,7 +243,7 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
 def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota) 
     print("Lista Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No hay Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
     OrdenarListas()
 
@@ -257,7 +261,7 @@ def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota)
 def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
     print("Lista Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No hay Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
     OrdenarListas()
 
@@ -274,7 +278,7 @@ def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
 def ListadoMejoresEstudiantes(): #estudiantes (nro. de Legajo ,  nombre y nota) de aquellos  que tengan nota más alta 
     print("Lista Mejores Estudiantes Aprobados")
     if len(legajosLista) == 0:
-        input ("No hay Estudiantes Cargados")
+        input ("No hay Estudiantes Cargados => ")
         return
     OrdenarListas()
 
