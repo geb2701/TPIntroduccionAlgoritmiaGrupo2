@@ -2,7 +2,19 @@ legajosLista=[3,2,1]
 nombresLista=["Juan","Pedro","Maxi"]
 notas=[0,0,0]
 
-def EncontrarLegajo(legajo, legajoCreado): #legajoCreado es un boleado que determina si existe o no el legajo
+def ObtenerNombre():
+    nombre=input("Ingrese el Nombre del Alumno => ")
+    if nombre == "0":
+        return ""
+    while nombre == "":
+        print ("Nombre Invalido")
+        print("Ingrese 0 para regresar")
+        nombre=input("Ingrese el Nombre del Alumno => ")
+        if nombre == "0":
+            return ""
+    return nombre
+    
+def EncontrarLegajo(legajo, legajoCreado): #legajoCreado es un bolean0o que determina si existe o no el legajo
                                             #True el legajo ya esta creado
                                             #False el legajo ya no esta creado
     i=0
@@ -79,13 +91,9 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
 
     legajo = encontrarLegajo[0]
 
-    nombre=input("Ingrese el Nombre del Alumno => ")
+    nombre = ObtenerNombre
     if nombre == "":
-        print ("Nombre Invalido")
-        print("Ingrese 0 para regresar")
-        nombre=input("Ingrese el Nombre del Alumno => ")
-        if nombre == 0:
-            return
+        return
 
     print("Datos Alta Alumno")
     print("Legajo:", legajo)
@@ -107,23 +115,22 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     print ("Baja Estudiante")
     print("Ingrese 0 para regresar =>")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
-    i=0
-
+    
     if legajo==0:
         return
     
     encontrarLegajo = EncontrarLegajo(legajo, False)
     legajo = encontrarLegajo[0]
-    i = encontrarLegajo[1]
+    indice = encontrarLegajo[1]
 
     print("Datos Baja Alumno")
-    print("Legajo:", str(legajosLista[i]))
-    print("Nombre:", nombresLista[i])
+    print("Legajo:", str(legajosLista[indice]))
+    print("Nombre:", nombresLista[indice])
     confirmacion = Confirmar()
     if confirmacion == True:
-        legajosLista.pop(i)
-        nombresLista.pop(i)
-        notas.pop(i)
+        legajosLista.pop(indice)
+        nombresLista.pop(indice)
+        notas.pop(indice)
         print("Operacion Exitosa")
     else:
         print("Operacion Cancelada")
@@ -132,8 +139,37 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
 
-def ModificacionEstudiante(): #se ingresa legajo, se muestra el nombre actual, y se permite cambiar el nombre
-    print ("a")
+def ModificacionEstudiante(legajosLista, nombresLista):
+    print("Modificacion Estudiante")
+    print("Ingrese 0 para regresar =>")
+    legajo = int(input("Ingrese el Legajo del Alumno => "))
+    
+    if legajo == 0:
+        return
+
+    encontrarLegajo = EncontrarLegajo(legajo, False)
+    legajo = encontrarLegajo[0]
+    indice = encontrarLegajo[1]
+    
+    print(str(legajosLista[indice] + ")", nombresLista[indice]))
+    nombre = ObtenerNombre
+    if nombre == "":
+        return
+        
+    print("Datos Modificacion Alumno")
+    print("Legajo:", legajo)
+    print("Nombre:", nombre)
+    confirmacion = Confirmar()
+    if confirmacion == True:
+        nombresLista[indice] = nombre
+        print("Operacion Exitosa")
+    else:
+        print("Operacion Cancelada")
+
+    nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu => "))
+    if nuevamente == "1": #no usamos cambiante a lower o upper
+
+        ModificacionEstudiante()
     
 def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
     n=len(legajosLista)
