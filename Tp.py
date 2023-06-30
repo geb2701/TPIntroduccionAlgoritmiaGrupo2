@@ -1,6 +1,6 @@
-legajosLista=[3,2,1]
-nombresLista=["Juan","Pedro","Maxi"]
-listaNotas=[0,0,0]
+legajosLista=[]
+nombresLista=[]
+listaNotas=[]
 
 def ObtenerNombre():
     nombre=input("Ingrese el Nombre del Alumno => ")
@@ -219,7 +219,7 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
     if (listaNotas[indice]!= 0):
         print("Este Alumno ya tiene una Nota Cargada")
     else:
-        nota = int(input("Ingrese la Nota del Alumno =>"))
+        nota = int(input("Ingrese la Nota del Alumno => "))
         while 1 > nota or nota > 10: #validamos que la nota este entre 1 y 10
             print("La Nota debe estar entre 1 y 10")
             print("Ingrese 0 o -1 para regresar")
@@ -243,11 +243,16 @@ def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota)
         return
     OrdenarListas()
 
+    cantidad = 0
     for i in range (len(legajosLista)):
         if listaNotas[i] < 4 and listaNotas[i] != 0:
             print (str(legajosLista[i]) + ")", nombresLista[i])
             print("Nota:", listaNotas[i])
-    input("Pulse para Continuar => ")
+            cantidad += 1
+    if cantidad != 0:
+        input("Pulse para Continuar => ")
+    else:
+        input("No hay Estudiantes Aprobados => ")
     
 def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
     print("Lista Estudiantes Aprobados")
@@ -256,11 +261,15 @@ def ListaEstudiantesAprobados():#(nro. de Legajo ,  nombre y nota)
         return
     OrdenarListas()
 
+    cantidad = 0
     for i in range (len(legajosLista)):
         if listaNotas[i] >= 4:
             print (str(legajosLista[i]) + ")", nombresLista[i])
             print("Nota:", listaNotas[i])
-    input("Pulse para Continuar => ")
+    if cantidad != 0:
+        input("Pulse para Continuar => ")
+    else:
+        input("No hay Estudiantes Aprobados => ")
      
 def ListadoMejoresEstudiantes(): #estudiantes (nro. de Legajo ,  nombre y nota) de aquellos  que tengan nota más alta 
     print("Lista Mejores Estudiantes Aprobados")
@@ -277,14 +286,14 @@ def ListadoMejoresEstudiantes(): #estudiantes (nro. de Legajo ,  nombre y nota) 
             mejoresEstudiantes = [i]
             mejorNota = listaNotas[i]
         elif listaNotas[i] == mejorNota:
-            mejoresEstudiantes.append[i]
+            mejoresEstudiantes.append(i)
 
     if len(mejoresEstudiantes) == 0:
         input ("No hay Notas Cargadas")
     else:
         for i in range (len(mejoresEstudiantes)):
             indice = mejoresEstudiantes[i]
-            if listaNotas[i] >= 4:
+            if listaNotas[indice] >= 4:
                 print (str(legajosLista[indice]) + ")", nombresLista[indice])
                 print("Nota:", listaNotas[indice])
     input("Pulse para Continuar => ")
@@ -308,7 +317,7 @@ def MostrarElementos(lista):
 
 menuFunciones = [
     AltaEstudiante, BajaEstudiante, ModificacionEstudiante, ListadoEstudiantes, CargaNotaEstudiante,
-    ListaEstudiantesReprobados, ListaEstudiantesAprobados, ListadoEstudiantes  
+    ListaEstudiantesReprobados, ListaEstudiantesAprobados, ListadoMejoresEstudiantes  
 ]
 menuOpciones = [
     "Alta Estudiante", 
