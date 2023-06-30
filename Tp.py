@@ -64,8 +64,53 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
 
     
 def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudiantes
-    print ("a")
-    
+    print ("Baja Estudiante")
+    print("Ingrese 0 para regresar =>")
+    legajo=int(input("Ingrese el Legajo del Alumno => "))
+    i=0
+
+    if legajo==0:
+        return
+    legajoEliminado = True
+    while legajoEliminado == True:
+        NoEncontrado=True
+        while i < len(legajosLista) and NoEncontrado==True:
+            if legajo==legajosLista [i]:
+                NoEncontrado=False
+            else:
+                i += 1
+        if NoEncontrado == False:
+            print ("Legajo Eliminado correctamente")
+            print("Ingrese 0 para regresar =>")
+            legajo=int(input("Ingrese el Legajo del Alumno => "))
+            if legajo == 0:
+               return
+        else:
+            legajoBorrado = True
+
+    nombre=input("Ingrese el Nombre del Alumno => ")
+    if nombre == "":
+        print ("Nombre Invalido")
+        print("Ingrese 0 para regresar")
+        nombre=input("Ingrese el Nombre del Alumno => ")
+        if nombre == 0:
+            return
+
+    print("Datos Alta Alumno")
+    print("Legajo:", legajo)
+    print("Nombre:", nombre)
+    confirmacion = Confirmar()
+    if confirmacion == True:
+        legajosLista.pop(legajo)
+        nombresLista.pop(nombre)
+        notas.pop(0)
+        print("Operacion Exitosa")
+    else:
+        print("Operacion Cancelada")
+
+    nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu"))
+    if nuevamente == "1": #no usamos cambiante a lower o upper
+        AltaEstudiante()
 def ModificacionEstudiante(): #se ingresa legajo, se muestra el nombre actual, y se permite cambiar el nombre
     print ("a")
     
