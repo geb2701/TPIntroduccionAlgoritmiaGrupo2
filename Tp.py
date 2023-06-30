@@ -99,8 +99,8 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
 
     if legajo==0:
         return
-    legajoEliminado = True
-    while legajoEliminado == True:
+    legajoEliminado = False
+    while legajoEliminado == False:
         NoEncontrado=True
         while i < len(legajosLista) and NoEncontrado==True:
             if legajo==legajosLista [i]:
@@ -108,30 +108,22 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
             else:
                 i += 1
         if NoEncontrado == False:
-            print ("Legajo Eliminado correctamente")
+            print ("Legajo No Encontrado")
             print("Ingrese 0 para regresar =>")
             legajo=int(input("Ingrese el Legajo del Alumno => "))
             if legajo == 0:
                return
         else:
-            legajoBorrado = True
+            legajoEliminado = True
 
-    nombre=input("Ingrese el Nombre del Alumno => ")
-    if nombre == "":
-        print ("Nombre Invalido")
-        print("Ingrese 0 para regresar")
-        nombre=input("Ingrese el Nombre del Alumno => ")
-        if nombre == 0:
-            return
-
-    print("Datos Alta Alumno")
-    print("Legajo:", legajo)
-    print("Nombre:", nombre)
+    print("Datos Baja Alumno")
+    print("Legajo:", str(legajosLista[i]))
+    print("Nombre:", nombresLista[i])
     confirmacion = Confirmar()
     if confirmacion == True:
-        legajosLista.pop(legajo)
-        nombresLista.pop(nombre)
-        notas.pop(0)
+        legajosLista.pop(i)
+        nombresLista.pop(i)
+        notas.pop(i)
         print("Operacion Exitosa")
     else:
         print("Operacion Cancelada")
