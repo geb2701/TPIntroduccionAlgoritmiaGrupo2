@@ -143,7 +143,7 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
 
-def ModificacionEstudiante(legajosLista, nombresLista):
+def ModificacionEstudiante():
     if len(legajosLista) == 0:
         input ("No Estudiantes Cargados")
         return
