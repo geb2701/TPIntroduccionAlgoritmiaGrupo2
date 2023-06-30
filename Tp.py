@@ -1,6 +1,6 @@
-legajosLista=[1,2,3,4,5,6,7,8,9]
-nombresLista=[]
-notas=[]
+legajosLista=[1,2,3]
+nombresLista=["Juan","Pedro","Maxi"]
+notas=[0,0,0]
 
 def Confirmar():
     while True:
@@ -61,9 +61,6 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
     nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu"))
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
-           
-
-
 
     
 def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudiantes
