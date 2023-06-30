@@ -91,7 +91,7 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
 
     legajo = encontrarLegajo[0]
 
-    nombre = ObtenerNombre
+    nombre = ObtenerNombre()
     if nombre == "":
         return
 
@@ -193,7 +193,7 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
     while legajoBusqueda == False:
         encontrado=False
         while indice < len(legajosLista) and encontrado==False:
-            if legajo==legajosLista [i]:
+            if legajo==legajosLista [indice]:
                 encontrado=True
             else:
                 indice += 1
