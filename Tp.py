@@ -40,7 +40,6 @@ def Confirmar():
         else:
             print ("Error en Confirmacion")
     
-
 def AltaEstudiante():  #Se ingresa legajo y nombre
     print ("Alta Estudiante")
     print("Ingrese 0 para regresar")
@@ -89,7 +88,6 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
     nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu => "))
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
-
     
 def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudiantes
     print ("Baja Estudiante")
@@ -101,13 +99,13 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
         return
     legajoEliminado = False
     while legajoEliminado == False:
-        NoEncontrado=True
-        while i < len(legajosLista) and NoEncontrado==True:
+        encontrado=False
+        while i < len(legajosLista) and encontrado==False:
             if legajo==legajosLista [i]:
-                NoEncontrado=False
+                encontrado=True
             else:
                 i += 1
-        if NoEncontrado == False:
+        if encontrado == False:
             print ("Legajo No Encontrado")
             print("Ingrese 0 para regresar =>")
             legajo=int(input("Ingrese el Legajo del Alumno => "))
@@ -131,6 +129,7 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu"))
     if nuevamente == "1": #no usamos cambiante a lower o upper
         AltaEstudiante()
+
 def ModificacionEstudiante(): #se ingresa legajo, se muestra el nombre actual, y se permite cambiar el nombre
     print ("a")
     
@@ -165,7 +164,29 @@ def ListadoEstudiantes():#ordenado por nro. de Legajo (por metodo de selección)
     
 def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las notas nro. enteros)
                             #En caso que el legajo no haya sido cargado, se debe mostrar la leyenda “Legajo inexistente”. La carga finaliza con legajo igual a -1. 
-    print ("a")
+    print ("Alta Notas")
+    print("Ingrese 0 para regresar")
+    legajo=int(input("Ingrese el Legajo del Alumno => "))
+    i=0
+
+    if legajo==0:
+        return
+    legajoNuevo = False
+    while legajoNuevo == False:
+        encontrado=False
+        while i < len(legajosLista) and encontrado==False:
+            if legajo==legajosLista [i]:
+                encontrado=True
+            else:
+                i += 1
+        if encontrado == True:
+            print ("Legajo Existente")
+            print("Ingrese 0 para regresar")
+            legajo=int(input("Ingrese el Legajo del Alumno => "))
+            if legajo == 0:
+               return
+        else:
+            legajoNuevo = True
     
 def ListaEstudiantesReprobados():#(nro. de Legajo ,  nombre y nota) 
     print ("a")
