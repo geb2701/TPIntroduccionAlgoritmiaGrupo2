@@ -63,11 +63,6 @@ def OrdenarListas():
                 desordenado=True
         n-=1
 
-    for i in range (len(legajosLista)):
-        print (str(legajosLista[i]) + ")", nombresLista[i])
-
-    input("Pulse para Continuar => ")
-
 def Confirmar():
     while True:
         ingreso = str(input("¿Desea Confirmar la Operacion? Ingrese 1/Si para Confiramar o 0/No para Cancelar => "))
@@ -83,7 +78,6 @@ def AltaEstudiante():  #Se ingresa legajo y nombre
     print("Ingrese 0 para regresar")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
     
-
     if legajo==0:
         return
     
@@ -220,6 +214,8 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
         else:
             legajoBusqueda = True
     
+    
+
     if (listaNotas[indice]!= 0):
         print("Este Alumno ya tiene una Nota Cargada")
     else:
@@ -229,7 +225,8 @@ def CargaNotaEstudiante():  #Se ingresa legajo y nota (entre 1 y 10,siendo las l
             print("Ingrese 0 o -1 para regresar")
             nota = int(input("Ingrese la Nota del Alumno =>"))
 
-        
+        print (str(legajosLista[indice]) + ")", nombresLista[indice])
+        print("Nota:", nota)
         confirmacion = Confirmar()
         if confirmacion == True:
             listaNotas[indice] = nota
