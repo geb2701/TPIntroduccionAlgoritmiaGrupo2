@@ -107,23 +107,22 @@ def BajaEstudiante(): #se ingresa legajo y se elimina todas las listas de estudi
     print ("Baja Estudiante")
     print("Ingrese 0 para regresar =>")
     legajo=int(input("Ingrese el Legajo del Alumno => "))
-    i=0
 
     if legajo==0:
         return
     
     encontrarLegajo = EncontrarLegajo(legajo, False)
     legajo = encontrarLegajo[0]
-    i = encontrarLegajo[1]
+    indice = encontrarLegajo[1]
 
     print("Datos Baja Alumno")
-    print("Legajo:", str(legajosLista[i]))
-    print("Nombre:", nombresLista[i])
+    print("Legajo:", str(legajosLista[indice]))
+    print("Nombre:", nombresLista[indice])
     confirmacion = Confirmar()
     if confirmacion == True:
-        legajosLista.pop(i)
-        nombresLista.pop(i)
-        notas.pop(i)
+        legajosLista.pop(indice)
+        nombresLista.pop(indice)
+        notas.pop(indice)
         print("Operacion Exitosa")
     else:
         print("Operacion Cancelada")
