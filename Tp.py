@@ -1,19 +1,68 @@
-legajosLista=[]
+legajosLista=[1,2,3,4,5,6,7,8,9]
 nombresLista=[]
+notas=[]
 
+def Confirmar():
+    while True:
+        ingreso = str(input("¿Desea Confirmar la Operacion? Ingrese 1/Si para Confiramar o 0/No para Cancelar =>"))
+        if ingreso == "1" or ingreso == "Si" or ingreso == "SI" or ingreso == "si": #no usamos cambiante a lower o upper
+            return True
+        elif ingreso == "0" or ingreso == "No" or ingreso == "NO" or ingreso == "no": #no usamos cambiante a lower o upper
+            return False
+        else:
+            print ("Error en Confirmacion")
+    
 
 def AltaEstudiante():  #Se ingresa legajo y nombre
     print ("Alta Estudiante")
-    legajo=int(input("Ingrese legajo => "))
+    print("Ingrese 0 para regresar")
+    legajo=int(input("Ingrese el Legajo del Alumno => "))
     i=0
-    maximoi=len(legajosLista)
-    encontrado=False
-    while i < legajosLista and encontrado==False:
-        if legajo==legajosLista [i]:
-            encontrado=True
+
+    if legajo==0:
+        return
+    legajoNuevo = False
+    while legajoNuevo == False:
+        encontrado=False
+        while i < len(legajosLista) and encontrado==False:
+            if legajo==legajosLista [i]:
+                encontrado=True
+            else:
+                i += 1
+        if encontrado == True:
+            print ("Legajo Existente")
+            print("Ingrese 0 para regresar")
+            legajo=int(input("Ingrese el Legajo del Alumno => "))
+            if legajo == 0:
+               return
         else:
-            i=+1
-        
+            legajoNuevo = True
+
+    nombre=input("Ingrese el Nombre del Alumno => ")
+    if nombre == "":
+        print ("Nombre Invalido")
+        print("Ingrese 0 para regresar")
+        nombre=input("Ingrese el Nombre del Alumno => ")
+        if nombre == 0:
+            return
+
+    print("Datos Alta Alumno")
+    print("Legajo:", legajo)
+    print("Nombre:", nombre)
+    confirmacion = Confirmar()
+    if confirmacion == True:
+        legajosLista.append(legajo)
+        nombresLista.append(nombre)
+        notas.append(0)
+        print("Operacion Exitosa")
+    else:
+        print("Operacion Cancelada")
+
+    nuevamente = str(input("Pulse 1 si quiere Realizar una Nueva Operación, de lo contario Enter para volver al menu"))
+    if nuevamente == "1": #no usamos cambiante a lower o upper
+        AltaEstudiante()
+           
+
 
 
     
